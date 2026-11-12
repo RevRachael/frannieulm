@@ -131,6 +131,47 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
   .rule{display:none}
   .copy{position:static;font-size:.85rem}
 }
+
+/* Home page short introduction */
+.g-intro .bio p:last-child{color:inherit;font-size:inherit;margin-top:0}
+.g-intro .bio p{font-size:calc(var(--u)*19.5);line-height:1.5}
+.g-intro .more-link{margin-top:calc(var(--u)*26)!important}
+.g-intro .photo{margin-top:calc(var(--u)*-30)}
+.btn2{display:inline-flex;align-items:center;gap:calc(var(--u)*14);padding:calc(var(--u)*13) calc(var(--u)*30);
+  background:linear-gradient(180deg,#ffd876,#f4bb44);color:var(--navy-ink);text-decoration:none;border-radius:calc(var(--u)*5);
+  font-weight:700;font-size:calc(var(--u)*18.5);box-shadow:0 calc(var(--u)*4) calc(var(--u)*12) rgba(0,0,0,.35);transition:filter .15s ease}
+.btn2:hover{filter:brightness(1.06)}
+.btn2:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+
+/* About page */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:calc(var(--u)*22) calc(var(--u)*44);background:var(--deep);border-bottom:calc(var(--u)*1.6) solid rgba(224,176,74,.45)}
+.topbar a{color:var(--gold);text-decoration:none}
+.topbar .site-name{font-size:calc(var(--u)*30);line-height:1}
+.topbar .home-link{font-family:var(--sans);font-size:calc(var(--u)*15);letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.topbar a:hover{text-decoration:underline}
+.aboutpg .g-about{padding-top:calc(var(--u)*56);position:relative;
+  background:radial-gradient(ellipse at 85% 0%,rgba(255,204,89,.07),transparent 55%),var(--navy)}
+.aboutpg .sec-h{font-size:calc(var(--u)*50)}
+.aboutpg .bio p{color:var(--white)}
+.st{position:absolute;height:auto;aspect-ratio:1;pointer-events:none;filter:drop-shadow(0 0 calc(var(--u)*9) rgba(255,204,89,.6)) drop-shadow(0 0 2px rgba(255,225,150,.8))}
+.st1{width:calc(var(--u)*96);right:calc(var(--u)*40);top:calc(var(--u)*22)}
+.st2{width:calc(var(--u)*48);right:calc(var(--u)*150);top:calc(var(--u)*96)}
+.st3{width:calc(var(--u)*64);left:calc(var(--u)*26);bottom:calc(var(--u)*150)}
+.aboutpg .back{margin:calc(var(--u)*30) 0 0;text-align:center;font-family:var(--sans);font-size:calc(var(--u)*15)}
+.aboutpg .back a{color:var(--gold)}
+@media (max-width:640px){
+  .g-intro .bio p{font-size:1.1rem}
+  .g-intro .photo{margin-top:0}
+  .g-intro .bio{text-align:center}
+  .btn2{padding:13px 28px;font-size:1.05rem;border-radius:6px;gap:12px}
+  .topbar{padding:16px 18px}
+  .topbar .site-name{font-size:1.35rem}
+  .topbar .home-link{font-size:.8rem}
+  .aboutpg .sec-h{font-size:2.4rem}
+  .st1{width:52px;right:14px;top:16px}.st2{display:none}.st3{width:40px;left:auto;right:28px;bottom:120px}
+  .aboutpg .back{font-size:.95rem}
+}
+
 @media (prefers-reduced-motion:reduce){.btn,.buy .btn2{transition:none}}
 </style>
 </head>
@@ -183,7 +224,7 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
     <img class="fern" src="leaves.png" alt="">
   </section>
 
-  <section class="flow g-about" aria-labelledby="about-h">
+  <section class="flow g-about g-intro" aria-labelledby="about-h">
     <h2 class="sec-h" id="about-h">About the Author</h2>
     <svg class="sec-orn" viewBox="0 0 311 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <defs><linearGradient id="rl" x1="0" x2="1"><stop offset="0" stop-color="#c98f2a" stop-opacity="0"/><stop offset="1" stop-color="#c98f2a"/></linearGradient>
@@ -193,13 +234,9 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
     </svg>
     <div class="photo"><img src="frannie-portrait.png" alt="Portrait of Rev. Dr. Frannie Ulm"></div>
     <div class="bio">
-      <p>In January 2008, ten days after the death of my husband of twenty-four years, I walked into a spiritual community in Reno. I was carrying profound grief and looking to understand life and death and how they might be held together from a space of love. I needed a way to live with what had happened, to hold what I had loved, and to discover what life might still ask of me.</p>
-      <p>What followed was a gift I didn’t expect, one that continues to amaze me. The teachings of New Thought opened a way to explore the sacred and my relationship to it. What began in abject grief grew into almost two decades of study, reflection, and uncovering the unseen presence within and throughout life. Along the way came an ever-deepening awareness of my inherent wholeness, curiosity, discovery, more loss, growth, and ultimately, the call to ministry. The questions that brought me through that door became questions I would learn to live with more deeply.</p>
-      <p>My work in hospice brought those questions into intimate, human focus. Being alongside people in the wilderness of death, and those finding their way through the shifting landscape of grief, deepened my respect for the tenderness and resilience of the human spirit. I learned to listen without hurrying toward an answer and to honor the ways each person makes meaning. Sometimes the most meaningful offering was simply a willingness to stay present.</p>
-      <p>Today, I am unapologetically curious. That curiosity has carried me through ministerial training and doctoral study at Emerson Theological Institute, where I earned a Doctor of Consciousness Studies. It continues to shape my work as an author, teacher, and licensed minister with the Centers for Spiritual Living. I am drawn to spiritual traditions, philosophy, and scientific inquiry for the ways they invite us to reconsider who we are and how we participate in life. I take these explorations seriously, though I’ve learned to hold my own certainty a little more lightly.</p>
-      <p>My first book, <cite>Reimagining the Sacred: A Dictionary for the Modern Seeker</cite>, grew from this continuing exploration and my love of words. I became interested in how language can help us understand one another and how easily we can use the same word while meaning very different things. Creating the dictionary offered a way to bring spiritual and metaphysical meanings into contemporary conversation, alongside scientific perspectives where relevant. My intention was to offer a thoughtful, accessible companion for readers exploring their own questions.</p>
-      <p>For me, the value of spiritual study becomes clear in the living of it—in how we respond when life unsettles us, how we meet someone whose experience differs from our own, and whether we can remain open when an old understanding no longer serves. These are daily practices in my own life. Some days I remember to pause. Other days, the wisdom arrives shortly after I could have used it. And onward I go, ever curious about what life has yet to teach me.</p>
-      <p>It is my heartfelt intention that my work opens portals of curiosity and offers something of substance to your own exploration.</p>
+      <p>Rev. Dr. Frannie Ulm is an author, teacher, and licensed minister with the Centers for Spiritual Living, and holds a Doctor of Consciousness Studies from Emerson Theological Institute.</p>
+      <p>Her years in hospice ministry and her love of words led to her first book, <cite>Reimagining the Sacred: A Dictionary for the Modern Seeker</cite>.</p>
+      <p class="more-link"><a class="btn2" href="/about">Read More About Frannie</a></p>
     </div>
     <div class="buy">
       <div class="qrbox"><img src="qr.png" alt="QR code linking to Reimagining the Sacred on Amazon"></div>
