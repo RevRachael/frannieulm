@@ -27,9 +27,11 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
   padding-block:9px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
 /* Poster: everything placed in design units (1u = 1px of the 768px-wide Canva page) */
-.poster{container-type:inline-size;position:relative;width:min(100%,1100px);margin:0 auto;aspect-ratio:768/1024;
-  background:url("poster-bg.jpg") 0 0/100% 100% var(--navy);box-shadow:0 0 60px rgba(0,0,0,.45);overflow:hidden}
+.poster{container-type:inline-size;position:relative;width:min(100%,1100px);margin:0 auto;
+  background:var(--navy);box-shadow:0 0 60px rgba(0,0,0,.45);overflow:hidden}
 .poster *{--u:calc(100cqw / 768)}
+/* Hero keeps the approved composition: the top 564 units of the Canva page */
+.g.g-hero{display:block;position:relative;aspect-ratio:768/564;background:url("poster-bg.jpg") 0 0/100% calc(100% * 1024 / 564) no-repeat var(--navy)}
 .g{display:contents}
 .abs{position:absolute;margin:0}
 .u{left:calc(var(--u)*var(--x));top:calc(var(--u)*var(--y));width:calc(var(--u)*var(--w))}
@@ -52,28 +54,50 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
 .s-sm{--x:628;--y:436;--w:70}
 .curve{--x:0;--y:512;--w:768;height:calc(var(--u)*52);z-index:2}
 
-.h2{--x:92.75;--y:580.5;--w:420;font-weight:400;color:var(--ink);font-size:calc(var(--u)*43.26);line-height:1;z-index:2}
-.orn{--x:89;--y:634;--w:311;height:calc(var(--u)*24);z-index:2}
-.bio{--x:57;--y:668;--w:376;font-weight:700;color:var(--bio);font-size:calc(var(--u)*17.57);line-height:1.3;z-index:2}
-.photo{--x:472;--y:552;--w:237;height:calc(var(--u)*231);z-index:2;
-}
-.photo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 6px 14px rgba(0,21,59,.18))}
-.qrcap{--x:78.4;--y:782;--w:120;font-size:calc(var(--u)*22.4);line-height:1.09;color:var(--white);text-shadow:0 1px 6px rgba(0,15,32,.45);z-index:2}
-.qrbox{--x:80.4;--y:833.5;--w:99;height:calc(var(--u)*105);display:grid;place-items:center;background:var(--white);
-  border-radius:calc(var(--u)*5);box-shadow:0 0 0 calc(var(--u)*2.5) #e0b04a,0 calc(var(--u)*4) calc(var(--u)*12) rgba(0,0,0,.35);z-index:2}
+
+/* Flowing sections below the hero, sized in the same design units */
+.flow{position:relative;padding:calc(var(--u)*46) calc(var(--u)*92) calc(var(--u)*60)}
+.sec-h{margin:0;font-weight:400;font-size:calc(var(--u)*43.26);line-height:1}
+.sec-orn{display:block;width:calc(var(--u)*311);height:calc(var(--u)*24);margin:calc(var(--u)*12) 0 calc(var(--u)*26)}
+.flow p{margin:0 0 1em;font-size:calc(var(--u)*17.57);line-height:1.55}
+
+.g-welcome{background:linear-gradient(to bottom,rgba(246,241,233,0) 86%,var(--navy) 100%),url("stone.jpg") center top/cover #f6f1e9;
+  color:var(--bio);padding-bottom:calc(var(--u)*150);text-align:center}
+.g-welcome .sec-h{color:var(--ink)}
+.g-welcome .sec-orn{margin-inline:auto}
+.g-welcome .letter{max-width:calc(var(--u)*540);margin:0 auto;position:relative;z-index:2}
+.g-welcome .letter p{font-weight:700}
+.g-welcome .letter p:first-child{font-size:calc(var(--u)*21.5);line-height:1.45}
+.g-welcome .fern{position:absolute;right:0;bottom:calc(var(--u)*70);width:calc(var(--u)*150);height:auto;z-index:1;opacity:.85}
+
+.g-about{background:var(--navy);color:var(--white);padding-top:calc(var(--u)*20)}
+.g-about .sec-h{color:var(--gold)}
+.g-about .photo{float:right;width:calc(var(--u)*230);height:calc(var(--u)*230);margin:calc(var(--u)*-6) calc(var(--u)*-20) calc(var(--u)*14) calc(var(--u)*28);shape-outside:circle(48%)}
+.g-about .photo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.g-about .bio p{color:#e9eef5}
+.g-about .bio p:last-child{color:var(--gold);font-size:calc(var(--u)*19.5);line-height:1.45;margin-top:1.4em}
+.buy{clear:both;display:flex;align-items:center;gap:calc(var(--u)*26);margin-top:calc(var(--u)*34);padding-top:calc(var(--u)*30);
+  border-top:calc(var(--u)*1.6) solid rgba(224,176,74,.55)}
+.qrbox{width:calc(var(--u)*99);height:calc(var(--u)*105);flex:none;display:grid;place-items:center;background:var(--white);
+  border-radius:calc(var(--u)*5);box-shadow:0 0 0 calc(var(--u)*2.5) #e0b04a,0 calc(var(--u)*4) calc(var(--u)*12) rgba(0,0,0,.35)}
 .qrbox img{width:calc(var(--u)*80);image-rendering:pixelated;display:block}
-.qrstar{--x:210;--y:817;--w:30;height:calc(var(--u)*120);z-index:2;filter:drop-shadow(0 0 calc(var(--u)*5) rgba(255,204,89,.5))}
-.more{--x:278.7;--y:830;--w:296;font-weight:700;color:var(--white);font-size:calc(var(--u)*17.57);line-height:1.3;z-index:2;text-shadow:0 1px 6px rgba(0,15,32,.5)}
-.fern{--x:590;--y:742;--w:178;height:calc(var(--u)*218);z-index:1}
-.rule{height:calc(var(--u)*1.6);width:calc(var(--u)*237);top:calc(var(--u)*989);z-index:2;
+.qrcap{margin:0;font-size:calc(var(--u)*22.4);line-height:1.09}
+.buy .btn2{margin-left:auto;display:inline-flex;align-items:center;gap:calc(var(--u)*14);padding:calc(var(--u)*13) calc(var(--u)*30);
+  background:linear-gradient(180deg,#ffd876,#f4bb44);color:var(--navy-ink);text-decoration:none;border-radius:calc(var(--u)*5);
+  font-weight:700;font-size:calc(var(--u)*18.5);box-shadow:0 calc(var(--u)*4) calc(var(--u)*12) rgba(0,0,0,.35);transition:filter .15s ease}
+.buy .btn2:hover{filter:brightness(1.06)}
+.buy .btn2:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+
+.g-foot{display:block;position:relative;height:calc(var(--u)*70);background:var(--navy)}
+.rule{position:absolute;height:calc(var(--u)*1.6);width:calc(var(--u)*237);top:calc(var(--u)*34);
   background:linear-gradient(to right,rgba(224,176,74,0),#e0b04a 25%,#e0b04a 75%,rgba(224,176,74,0))}
 .r1{left:calc(var(--u)*44)}.r2{left:calc(var(--u)*487)}
-.copy{--x:0;--y:976;--w:768;text-align:center;font-family:var(--sans);font-size:calc(var(--u)*13.86);line-height:1.5;color:var(--white);z-index:2}
-.foot-m{display:none}
+.copy{position:absolute;left:0;right:0;top:calc(var(--u)*24);margin:0;text-align:center;font-family:var(--sans);font-size:calc(var(--u)*13.86);line-height:1.5;color:var(--white)}
 
 /* Phones: one stacked column */
 @media (max-width:640px){
-  .poster{aspect-ratio:auto;background:var(--navy);box-shadow:none;container-type:normal}
+  .poster{box-shadow:none;container-type:normal}
+  .g.g-hero{aspect-ratio:auto;background:var(--navy)}
   .g{display:block;position:relative}
   .abs{position:static}
   .u{width:auto;left:auto;top:auto}
@@ -81,28 +105,33 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
   .name{font-size:1.75rem;padding:18px 16px 14px}
   .book{display:none}
   .hero-m{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:0% 100%}
-  .g-copy{padding:26px 22px 64px;display:grid;gap:22px}
+  .g-copy{padding:26px 22px 48px;display:grid;gap:22px}
   .tagline{font-size:2.35rem;line-height:.95}
   .desc{font-size:1.08rem;line-height:1.35;max-width:24em;margin:0 auto}
   .btn{position:relative;justify-self:center;width:auto;height:auto;padding:13px 28px;gap:12px;border-radius:6px}
   .btn b{font-size:1.9rem;margin-top:-4px}.btn span{font-size:1.05rem}
   .star{position:absolute}
   .s-lg{width:58px;right:7%;top:6px;left:auto}
-  .s-md{width:44px;left:4%;top:auto;bottom:118px}
-  .s-sm{width:42px;right:9%;left:auto;top:auto;bottom:44px}
-  .curve,.qrcap,.qrbox,.qrstar,.rule{display:none}
-  .g-about{background:linear-gradient(to bottom,rgba(246,241,233,0) 84%,var(--navy) 100%),url("stone.jpg") center top/cover #f6f1e9;
-    padding:40px 22px 130px;display:grid;gap:16px}
-  .h2{font-size:2.3rem}
-  .orn{width:240px;height:18px}
-  .bio,.more{font-size:1.05rem;line-height:1.5}
-  .photo{width:230px;height:230px;justify-self:center;margin-block:8px}
-  .more{color:var(--bio);text-shadow:none}
-  .fern{position:absolute;right:0;bottom:8px;width:84px;height:103px;opacity:.8}
-  .g-foot{padding:20px 16px 24px}
-  .copy{font-size:.85rem}
+  .s-md{width:44px;left:4%;top:auto;bottom:100px}
+  .s-sm{width:42px;right:9%;left:auto;top:auto;bottom:30px}
+  .curve{display:none}
+  .flow{padding:40px 22px 48px}
+  .sec-h{font-size:2.3rem}
+  .sec-orn{width:240px;height:18px;margin:10px 0 22px}
+  .flow p{font-size:1.05rem;line-height:1.6}
+  .g-welcome{padding-bottom:120px}
+  .g-welcome .letter p:first-child{font-size:1.2rem}
+  .g-welcome .fern{width:84px;bottom:40px}
+  .g-about .photo{float:none;width:220px;height:220px;margin:0 auto 22px}
+  .g-about .bio p:last-child{font-size:1.15rem}
+  .buy{flex-wrap:wrap;justify-content:center;gap:16px;margin-top:28px;padding-top:26px}
+  .qrbox,.qrcap{display:none}
+  .buy .btn2{margin:0;padding:13px 28px;font-size:1.05rem;border-radius:6px}
+  .g-foot{height:auto;padding:20px 16px 24px}
+  .rule{display:none}
+  .copy{position:static;font-size:.85rem}
 }
-@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+@media (prefers-reduced-motion:reduce){.btn,.buy .btn2{transition:none}}
 </style>
 </head>
 <body>
@@ -119,7 +148,7 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
   </symbol>
 </defs></svg>
 
-<p class="note">Preview draft. Text and photo are placeholders.</p>
+
 
 <main class="poster">
   <div class="g g-hero">
@@ -128,7 +157,7 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
     <img class="hero-m" src="hero.jpg" alt="Reimagining the Sacred: A Dictionary for the Modern Seeker, on a gold bookstand">
     <div class="g g-copy">
       <h2 class="abs u tagline">May curiosity<br>be your companion</h2>
-      <p class="abs u desc">This is placeholder text. Add a brief description of the book here to introduce readers and share what they can expect.</p>
+      <p class="abs u desc">A thoughtful, accessible companion for readers exploring their own questions.</p>
       <a class="abs u btn" href="https://www.amazon.com/dp/B0HLQFQ4CM" target="_blank" rel="noopener"><b aria-hidden="true">a</b><span>Buy on Amazon</span></a>
       <svg class="abs u star s-lg" aria-hidden="true"><use href="#star"/></svg>
       <svg class="abs u star s-md" aria-hidden="true"><use href="#star"/></svg>
@@ -137,26 +166,51 @@ body{background:var(--deep);color:var(--white);font-family:var(--serif)}
     <img class="abs u curve" src="goldcurve.png" alt="">
   </div>
 
-  <section class="g g-about" aria-labelledby="about-h">
-    <h2 class="abs u h2" id="about-h">About the Author</h2>
-    <svg class="abs u orn" viewBox="0 0 311 24" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+  <section class="flow g-welcome" aria-labelledby="welcome-h">
+    <h2 class="sec-h" id="welcome-h">Welcome</h2>
+    <svg class="sec-orn" viewBox="0 0 311 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs><linearGradient id="wl" x1="0" x2="1"><stop offset="0" stop-color="#c98f2a" stop-opacity="0"/><stop offset="1" stop-color="#c98f2a"/></linearGradient>
+      <linearGradient id="wr" x1="0" x2="1"><stop offset="0" stop-color="#c98f2a"/><stop offset="1" stop-color="#c98f2a" stop-opacity="0"/></linearGradient></defs>
+      <rect x="0" y="11.4" width="141" height="1.2" fill="url(#wl)"/><rect x="170" y="11.4" width="141" height="1.2" fill="url(#wr)"/>
+      <use href="#star" x="143.5" y="0" width="24" height="24"/>
+    </svg>
+    <div class="letter">
+      <p>Hi, I’m Frannie, and I’m glad you’ve made your way here. Perhaps what brought you is something we share—a sense that the sacred is woven into our lives, sometimes quietly familiar, sometimes inviting us to see beyond what we’ve known.</p>
+      <p>The words we use to describe the sacred are part of that discovery. I invite us to be curious about those words and the meanings they hold. What might we discover when we look at a familiar word with fresh eyes or listen to what it means to someone else?</p>
+      <p>Words with spiritual or metaphysical meaning can land differently for each of us, shaped by our experiences, traditions, and beliefs. Exploring their contemporary use, alongside scientific meanings where they intersect with metaphysical inquiry, can offer fresh insight while honoring the distinct perspectives each brings.</p>
+      <p>Together, we can deepen our conversations, open new possibilities, and grow closer through shared understanding.</p>
+    </div>
+    <img class="fern" src="leaves.png" alt="">
+  </section>
+
+  <section class="flow g-about" aria-labelledby="about-h">
+    <h2 class="sec-h" id="about-h">About the Author</h2>
+    <svg class="sec-orn" viewBox="0 0 311 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <defs><linearGradient id="rl" x1="0" x2="1"><stop offset="0" stop-color="#c98f2a" stop-opacity="0"/><stop offset="1" stop-color="#c98f2a"/></linearGradient>
       <linearGradient id="rr" x1="0" x2="1"><stop offset="0" stop-color="#c98f2a"/><stop offset="1" stop-color="#c98f2a" stop-opacity="0"/></linearGradient></defs>
       <rect x="0" y="11.4" width="141" height="1.2" fill="url(#rl)"/><rect x="170" y="11.4" width="141" height="1.2" fill="url(#rr)"/>
       <use href="#star" x="143.5" y="0" width="24" height="24"/>
     </svg>
-    <p class="abs u bio">This is placeholder text. Add a short bio about Frannie Ulm here. Share her background, what inspires her work, and what readers can expect from her writing.</p>
-    <div class="abs u photo"><img src="photo.png" alt="Portrait of Frannie Ulm"></div>
-    <p class="abs u qrcap">Scan to buy<br>on Amazon.</p>
-    <div class="abs u qrbox"><img src="qr.png" alt="QR code linking to Reimagining the Sacred on Amazon"></div>
-    <svg class="abs u qrstar" aria-hidden="true"><use href="#linestar"/></svg>
-    <p class="abs u more">This is placeholder text. Add a short bio about Frannie Ulm here. Share her background, what inspires her work, and what readers can expect from her writing.</p>
-    <img class="abs u fern" src="leaves.png" alt="">
+    <div class="photo"><img src="photo.png" alt="Portrait of Rev. Dr. Frannie Ulm"></div>
+    <div class="bio">
+      <p>In January 2008, ten days after the death of my husband of twenty-four years, I walked into a spiritual community in Reno. I was carrying profound grief and looking to understand life and death and how they might be held together from a space of love. I needed a way to live with what had happened, to hold what I had loved, and to discover what life might still ask of me.</p>
+      <p>What followed was a gift I didn’t expect, one that continues to amaze me. The teachings of New Thought opened a way to explore the sacred and my relationship to it. What began in abject grief grew into almost two decades of study, reflection, and uncovering the unseen presence within and throughout life. Along the way came an ever-deepening awareness of my inherent wholeness, curiosity, discovery, more loss, growth, and ultimately, the call to ministry. The questions that brought me through that door became questions I would learn to live with more deeply.</p>
+      <p>My work in hospice brought those questions into intimate, human focus. Being alongside people in the wilderness of death, and those finding their way through the shifting landscape of grief, deepened my respect for the tenderness and resilience of the human spirit. I learned to listen without hurrying toward an answer and to honor the ways each person makes meaning. Sometimes the most meaningful offering was simply a willingness to stay present.</p>
+      <p>Today, I am unapologetically curious. That curiosity has carried me through ministerial training and doctoral study at Emerson Theological Institute, where I earned a Doctor of Consciousness Studies. It continues to shape my work as an author, teacher, and licensed minister with the Centers for Spiritual Living. I am drawn to spiritual traditions, philosophy, and scientific inquiry for the ways they invite us to reconsider who we are and how we participate in life. I take these explorations seriously, though I’ve learned to hold my own certainty a little more lightly.</p>
+      <p>My first book, <cite>Reimagining the Sacred: A Dictionary for the Modern Seeker</cite>, grew from this continuing exploration and my love of words. I became interested in how language can help us understand one another and how easily we can use the same word while meaning very different things. Creating the dictionary offered a way to bring spiritual and metaphysical meanings into contemporary conversation, alongside scientific perspectives where relevant. My intention was to offer a thoughtful, accessible companion for readers exploring their own questions.</p>
+      <p>For me, the value of spiritual study becomes clear in the living of it—in how we respond when life unsettles us, how we meet someone whose experience differs from our own, and whether we can remain open when an old understanding no longer serves. These are daily practices in my own life. Some days I remember to pause. Other days, the wisdom arrives shortly after I could have used it. And onward I go, ever curious about what life has yet to teach me.</p>
+      <p>It is my heartfelt intention that my work opens portals of curiosity and offers something of substance to your own exploration.</p>
+    </div>
+    <div class="buy">
+      <div class="qrbox"><img src="qr.png" alt="QR code linking to Reimagining the Sacred on Amazon"></div>
+      <p class="qrcap">Scan to buy<br>on Amazon.</p>
+      <a class="btn2" href="https://www.amazon.com/dp/B0HLQFQ4CM" target="_blank" rel="noopener">Buy the Book on Amazon</a>
+    </div>
   </section>
 
-  <footer class="g g-foot">
-    <span class="abs rule r1"></span><span class="abs rule r2"></span>
-    <p class="abs u copy">© 2026 Frannie Ulm</p>
+  <footer class="g-foot">
+    <span class="rule r1"></span><span class="rule r2"></span>
+    <p class="copy">© 2026 Frannie Ulm</p>
   </footer>
 </main>
 </body>
